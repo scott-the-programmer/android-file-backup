@@ -1,6 +1,12 @@
 import { ISystemRepository } from "./filesystem-interfaces";
 import getSize = require("get-folder-size");
 
+export module folderModule{
+  export function getSize(folder:string,callback:(err:any,size:any)=> void): void {
+    getSize(folder,callback)
+  };
+}
+
 /**
  * Abstract class that defines system level utilities
  */
@@ -11,7 +17,7 @@ abstract class SystemRepository implements ISystemRepository {
    */
   async getFolderSize(folder: string): Promise<number> {
     return new Promise<number>((resolve, reject) =>
-      getSize(folder, (err, size) => {
+      folderModule.getSize(folder, (err, size) => {
         if (err) reject(err);
         resolve(size);
       })

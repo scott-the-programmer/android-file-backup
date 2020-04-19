@@ -1,5 +1,6 @@
-import { LinuxSystemRepository } from "../../src/repositories/system";
+import { LinuxSystemRepository, folderModule } from "../../src/repositories/system";
 import { expect } from "@oclif/test";
+import * as sinon from "sinon";
 
 describe("linux system repository", () => {
   it("should return correct inferred device name", async () => {
@@ -36,5 +37,22 @@ describe("linux system repository", () => {
 
     //Assert
     expect(device).to.be.equal("android-device");
+  });
+
+
+  it("should return a number when getting the folder size", async () => {
+    //Setup
+    const getSizeStub = sinon.stub(folderModule,"getSize");
+    getSizeStub.callsArgWith(1,null,3)
+    const linuxRepository = new LinuxSystemRepository();
+
+    //Act
+    const size = await linuxRepository.getFolderSize("mock")
+
+    //Assert
+    expect(size).to.equal(3);
+
+    //Restore
+    getSizeStub.restore();
   });
 });
