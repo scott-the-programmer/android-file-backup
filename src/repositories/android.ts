@@ -17,10 +17,10 @@ export class AndroidRepository implements IFolderRepository {
     
     const backupLocation = path.join(
       targetPath,
-      `${this.checkpoint.deviceName}-${this.checkpoint.timestamp}-droid-up`
+      `${this.checkpoint.deviceName}-${this.checkpoint.timestamp.toISOString()}-droid-up`
     );
 
-    //await this.mkdir(backupLocation);
+    await this.mkdir(backupLocation);
 
     return new Promise((resolve, reject) =>
       ncp.ncp(this.folder, backupLocation, (err) => {
