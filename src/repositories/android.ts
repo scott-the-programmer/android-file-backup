@@ -23,7 +23,7 @@ export class AndroidRepository implements IFolderRepository {
     await this.mkdir(backupLocation);
 
     return new Promise((resolve, reject) =>
-      ncp(this.folder, targetPath, (err) => {
+      ncp(this.folder, backupLocation, (err) => {
         if (err) reject(err);
         resolve(backupLocation);
       })
