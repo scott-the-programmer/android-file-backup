@@ -1,0 +1,19 @@
+import { IFileRepository } from "./filesystem-interfaces";
+import * as fs from "fs";
+import * as path from "path";
+import { CheckPoint } from "../models/checkpoint";
+
+/**
+ * Repository for maintaining metadata files
+ */
+export class MetadataRepository implements IFileRepository {
+  createFile(checkpoint: CheckPoint, filePath: string): Promise<void> {
+    const checkpointPath = path.join(filePath, "checkpoint.json");
+    return new Promise((resolve, reject) => {
+      fs.writeFile(checkpointPath, checkpoint, (err) => {
+        if (err) reject(err);
+        resolve();
+      });
+    });
+  }
+}
