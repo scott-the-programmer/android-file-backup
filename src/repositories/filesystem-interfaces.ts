@@ -21,7 +21,7 @@ export interface IFileRepository {
    * @param fileContent string contents of th e file
    * @param filePath string file path
    */
-  createFile(fileContent: any, filePath: string): Promise<void>;
+  createFile(fileContent: any, filePath: string): Promise<string>;
 }
 
 /**

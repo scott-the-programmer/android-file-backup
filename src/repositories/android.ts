@@ -1,5 +1,5 @@
 import { IFolderRepository } from "./filesystem-interfaces";
-import { ncp } from "ncp";
+import * as ncp from "ncp";
 import * as fs from "fs";
 import * as path from "path";
 import { CheckPoint } from "../models/checkpoint";
@@ -20,10 +20,10 @@ export class AndroidRepository implements IFolderRepository {
       `${this.checkpoint.deviceName}-${this.checkpoint.timestamp}-droid-up`
     );
 
-    await this.mkdir(backupLocation);
+    //await this.mkdir(backupLocation);
 
     return new Promise((resolve, reject) =>
-      ncp(this.folder, backupLocation, (err) => {
+      ncp.ncp(this.folder, backupLocation, (err) => {
         if (err) reject(err);
         resolve(backupLocation);
       })
