@@ -9,8 +9,6 @@ import { MetadataRepository } from "../repositories/metadata";
 import { LinuxSystemRepository } from "../repositories/system";
 import { CheckPoint } from "../models/checkpoint";
 
-import * as path from "path";
-
 export class CreateController {
   target: string;
   source: string;
