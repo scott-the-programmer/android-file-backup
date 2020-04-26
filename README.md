@@ -1,5 +1,7 @@
 # Droid Up
 
+![CI](https://github.com/scott-the-programmer/droid-up/workflows/CI/badge.svg)
+
 Disclaimer - this is still currently a work in progress
 
 A simple utility to back up an Android Device.
