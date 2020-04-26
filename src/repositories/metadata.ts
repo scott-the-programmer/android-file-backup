@@ -11,7 +11,10 @@ export class MetadataRepository implements IFileRepository {
     const checkpointPath = path.join(filePath, "checkpoint.json");
     return new Promise((resolve, reject) => {
       fs.writeFile(checkpointPath, checkpoint.toJson(), (err) => {
-        if (err) reject(err);
+        if (err) {
+          reject(err)
+          return;
+        };
         resolve(checkpointPath);
       });
     });
