@@ -7,13 +7,11 @@ import { expect } from "chai";
 describe("android folder repository", () => {
   it("should return correct backup location on copy()", async () => {
     //Setup
-    var now = new Date(2020, 1, 1, 1, 1, 1, 1);
-    var clock = sinon.useFakeTimers(now.getTime());
+    var clock = sinon.useFakeTimers(1580472061001);
     const checkpoint = new CheckPoint("mock", "mock");
 
     const mkdirStub = sinon.stub(fs,"mkdir");
     mkdirStub.callsArg(2)
-
 
     const repo = new AndroidRepository("mock", checkpoint);
     const mockFiles = ["mock/path/file1","mock/path/file2","mock/path/file3"]
