@@ -29,7 +29,7 @@ export class AndroidRepository implements IFolderRepository {
       targetPath,
       `${
         this.checkpoint.deviceName
-      }-${this.checkpoint.timestamp.toISOString()}-droid-up`
+      }-${this.checkpoint.timestamp.valueOf()}-droid-up`
     );
 
     await this.mkdir(backupLocation);

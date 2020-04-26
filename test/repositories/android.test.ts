@@ -27,7 +27,7 @@ describe("android folder repository", () => {
     const backupLocation = await repo.copy("mock/path");
 
     //Assert
-    expect(backupLocation).to.equal("mock/path/mock-2020-01-31T12:01:01.001Z-droid-up");
+    expect(backupLocation).to.equal("mock/path/mock-1580472061001-droid-up");
 
     //Reset
     clock.restore();
