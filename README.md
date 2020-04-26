@@ -1,4 +1,4 @@
-# Droid up
+# Droid Up
 
 Disclaimer - this is still currently a work in progress
 
