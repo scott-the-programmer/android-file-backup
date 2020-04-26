@@ -55,9 +55,11 @@ Please modify the contents of this file to match what you want to debug against
 }
 ```
 
-## Run the progress
+## Run commands
 
-To run the project as a command, please execute the followingf
+To run the project as a command, please execute the following
+
+### Create Backup
 
 ```bash
  ./bin/run create -s /path/to/copy/from -t /path/to/copy/to
