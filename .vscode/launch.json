@@ -9,9 +9,9 @@
             "args": [
                 "create",
                 "-s",
-                "./sandbox/source",
+                "/usr/bin",
                 "-t",
-                "./sandbox/target"
+                "./sandbox/destination"
             ]
         }
     ]

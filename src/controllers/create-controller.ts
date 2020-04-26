@@ -1,8 +1,6 @@
-import {
-  IFolderRepository,
-  IFileRepository,
-  ISystemRepository,
-} from "../repositories/filesystem-interfaces";
+import { IFileRepository } from "../repositories/interfaces/file-repository-interface";
+import { IFolderRepository } from "../repositories/interfaces/folder-repository-interface";
+import { ISystemRepository } from "../repositories/interfaces/system-repository-interface";
 
 import { AndroidRepository } from "../repositories/android";
 import { MetadataRepository } from "../repositories/metadata";
@@ -39,6 +37,10 @@ export class CreateController {
     );
   }
 
+  async getFileCount(): Promise<number> {
+    return await this._androidRepository!.getFileCount();
+  }
+
   /**
    * Creates a checkpoint file in the specified directory
    * @param target file path to create the checkpoint file
@@ -51,8 +53,11 @@ export class CreateController {
   /**
    * Initiates the backup
    */
-  async createBackup(): Promise<void> {
-    const location = await this._androidRepository!.copy(this.target);
+  async createBackup(progressCallBack: () => void = () => {}): Promise<void> {
+    const location = await this._androidRepository!.copy(
+      this.target,
+      progressCallBack
+    );
     await this._metadataRepository.createFile(this._checkpoint!, location);
   }
 }

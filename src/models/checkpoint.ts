@@ -10,4 +10,8 @@ export class CheckPoint {
     this.deviceName = deviceName;
     this.reason = reason;
   }
+
+  toJson():string {
+    return JSON.stringify(this);
+  }
 }

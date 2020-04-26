@@ -1,4 +1,4 @@
-import { ISystemRepository } from "./filesystem-interfaces";
+import { ISystemRepository } from "./interfaces/system-repository-interface";
 import getSize = require("get-folder-size");
 
 export module folderModule{
