@@ -5,9 +5,14 @@ export interface IFolderRepository {
   folder: string;
 
   /**
-   *  Copies `folder` recursively to the targetPath location
+   * Copies the contents of the IFolderRepository to the target path
+   * @param targetPath target path to copy to 
+   * @param cb to be called on each file copy
    */
   copy(targetPath: string, cb: () => void): Promise<string>;
 
+  /**
+   * Retrieves the amount of files contained within the IFolderRepository
+   */
   getFileCount(): Promise<number>;
 }
