@@ -2,6 +2,7 @@
 
 ![CI](https://github.com/scott-the-programmer/droid-up/workflows/CI/badge.svg)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ef0daf22a7e958c82ba6/maintainability)](https://codeclimate.com/github/scott-the-programmer/droid-up/maintainability)
+
 Disclaimer - this is still currently a work in progress
 
 A simple utility to back up an Android Device.
