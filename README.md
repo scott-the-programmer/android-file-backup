@@ -9,10 +9,9 @@ A simple utility to back up an Android Device.
 
 ## Prerequisites
 
-* [NodeJS](https://nodejs.org/en/download/) 
+* [NodeJS](https://nodejs.org/en/download/)
 * [npm](https://www.npmjs.com/get-npm)
 * An Android Device
-
 
 ## Install dependencies
 
@@ -22,7 +21,6 @@ Please run the following command to install the npm dependencies
 npm install
 ```
 
-
 ## Run Unit Tests
 
 Unit tests are located under the [./test](./test) folder. To execute them, run the following command
@@ -31,7 +29,7 @@ Unit tests are located under the [./test](./test) folder. To execute them, run t
 npm test
 ```
 
-## Debugging 
+## Debugging
 
 I've added the necessary launch.json configurations to be able to debug locally with VSCode
 
