@@ -39,12 +39,13 @@ export class ProgressBar {
 
   /**
    * Completes the progress bar, setting the current value to the target value
+   * @param delay (Optional) delay in ms when completing the progress bar. Defaults to 2000ms (2 seconds)
    */
-  async complete(): Promise<void> {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    this._bar.stop();
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+  async complete(delay:number = 2000): Promise<void> {
+    await new Promise((resolve) => setTimeout(resolve, delay * 0.5));
     this._bar.update(this._targetValue);
+    await new Promise((resolve) => setTimeout(resolve, delay * 0.5));
+    this._bar.stop();
   }
 
   /**
