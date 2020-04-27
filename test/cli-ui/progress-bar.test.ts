@@ -5,6 +5,7 @@ describe("progress bar tests", () => {
   it("should increment progress", async () => {
     //Setup
     const progressBar = new ProgressBar(100);
+    progressBar.start();
 
     //Act
     progressBar.incrementProgress();
