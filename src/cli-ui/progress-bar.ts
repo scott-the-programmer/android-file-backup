@@ -15,11 +15,19 @@ export class ProgressBar {
 
     this._targetValue = targetValue;
     this._bar = cli.progress({
-      format: "[{bar}] | {value}/{total}",
+      format: "PROGRESS [{bar}] | {value}/{total}",
       fps: 100,
       synchronousUpdate: true,
+      barCompleteChar: '\u2588',
+      barIncompleteChar: '\u2591',
     });
-    this._bar.start(targetValue, 0);
+  }
+
+  /**
+   * Starts the progress bar
+   */
+  start(): void {
+    this._bar.start(this._targetValue, 0);
   }
 
   /**
@@ -32,7 +40,7 @@ export class ProgressBar {
   /**
    * Completes the progress bar, setting the current value to the target value
    */
-  async completeLoadingBar(): Promise<void> {
+  async complete(): Promise<void> {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     this._bar.stop();
     await new Promise((resolve) => setTimeout(resolve, 1000));

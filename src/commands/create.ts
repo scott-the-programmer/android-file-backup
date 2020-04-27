@@ -23,20 +23,26 @@ export default class Create extends Command {
   async run() {
     const { flags } = this.parse(Create);
 
+    this.log("Feeding the hamsters...")
+    //Setting up backup
     const controller = new CreateController(flags.source!, flags.target!);
     await controller.setup();
     const fileCount = await controller.getFileCount();
     const progressBar = new ProgressBar(fileCount);
 
+    this.log("Initiating backup...")
+
+    let backupLocation:string = "";
     try {
-      //Setting up backup
-      await controller.createBackup(() => {
+      progressBar.start();
+      backupLocation = await controller.createBackup(() => {
         progressBar.incrementProgress();
       });
+      await progressBar.complete();
     } catch (e) {
       this.log(e);
     }
-
-    await progressBar.completeLoadingBar();
+    this.log("Backup complete!")
+    this.log(`Your backup can be found under ${backupLocation}`)
   }
 }

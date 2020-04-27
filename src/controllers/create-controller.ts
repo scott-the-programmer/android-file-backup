@@ -51,13 +51,15 @@ export class CreateController {
   }
 
   /**
-   * Initiates the backup
+   * Initiates the backup and returns the full path of the backup
+   * @param progressCallBack (optional) progress callback
    */
-  async createBackup(progressCallBack: () => void = () => {}): Promise<void> {
+  async createBackup(progressCallBack: () => void = () => {}): Promise<string> {
     const location = await this._androidRepository!.copy(
       this.target,
       progressCallBack
     );
     await this._metadataRepository.createFile(this._checkpoint!, location);
+    return location
   }
 }

@@ -25,12 +25,14 @@ export class AndroidRepository implements IFolderRepository {
    * @param cb (Optional) callback that is called on each file copy
    */
   async copy(targetPath: string, cb: () => void = () => {}): Promise<string> {
-    const backupLocation = path.join(
+    let backupLocation = path.join(
       targetPath,
       `${
         this.checkpoint.deviceName
       }-${this.checkpoint.timestamp.valueOf()}-droid-up`
     );
+
+    backupLocation = path.resolve(backupLocation); //Ensure that the backup location is an absolute path
 
     await this.mkdir(backupLocation);
 
