@@ -46,7 +46,7 @@ export class CreateController {
    * @param target file path to create the checkpoint file
    */
   private async createCheckpoint(target: string): Promise<CheckPoint> {
-    const device = await this._systemRepository.getDriveName(target);
+    const device = await this._systemRepository.getDriveName(this.source);
     return new CheckPoint(target, device);
   }
 
