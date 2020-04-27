@@ -37,7 +37,6 @@ npm install
 ./bin/run create --source "/run/user/1000/gvfs/mtp:host=SAMSUNG/Phone/DCIM/Camera" \
 --target "/media/scott/USB/Storage/phone-backups"
 
-#Output
 Feeding the hamsters...
 Initiating backup...
 PROGRESS [████████████████████████████████████████] | 1095/1095
