@@ -31,11 +31,11 @@ Run tool
 ./bin/run create --source "/path/to/android/device" --target "/path/to/save/backup/to"
 ```
 
-```bash
-$ ./bin/run create --source "/run/user/1000/gvfs/mtp:host=SAMSUNG/Phone/DCIM/Camera" \
+```console
+./bin/run create --source "/run/user/1000/gvfs/mtp:host=SAMSUNG/Phone/DCIM/Camera" \
 --target "/media/scott/USB/Storage/phone-backups"
 
-
+#Output
 Feeding the hamsters...
 Initiating backup...
 PROGRESS [████████████████████████████████████████] | 1095/1095
