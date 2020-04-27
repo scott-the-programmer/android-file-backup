@@ -3,6 +3,18 @@ import { expect } from "@oclif/test";
 import * as sinon from "sinon";
 
 describe("linux system repository", () => {
+  it("should return correct inferred device name with child folders", async () => {
+    //Setup
+    const linuxRepository = new LinuxSystemRepository();
+    const filePath = "/run/user/1000/gvfs/mtp:host=Mock_Device/Phone/Folder";
+
+    //Act
+    const device = await linuxRepository.getDriveName(filePath);
+
+    //Assert
+    expect(device).to.be.equal("Mock_Device");
+  });
+
   it("should return correct inferred device name", async () => {
     //Setup
     const linuxRepository = new LinuxSystemRepository();
