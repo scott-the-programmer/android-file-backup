@@ -8,6 +8,8 @@ export class AndroidRepository implements IFolderRepository {
   folder: string;
   checkpoint: CheckPoint;
 
+  private _cachedFiles: string[] | undefined;
+
   /**
    * Repository for interacting with an Android file structure
    * @param folder location of the Android file structure
@@ -62,11 +64,19 @@ export class AndroidRepository implements IFolderRepository {
    */
   async getFiles(): Promise<string[]> {
     return new Promise((resolve, reject) => {
+      //If _cachedFiles exists, return that instead
+      if (this._cachedFiles) return resolve(this._cachedFiles);
+
       glob(`${this.folder}/**/*`, { nodir: true }, (error, files) => {
-        if (error) reject(error);
+        if (error) return reject(error);
+        this.cacheFiles(files);
         resolve(files);
       });
     });
+  }
+
+  private cacheFiles(files: string[]) {
+    this._cachedFiles = files;
   }
 
   private async mkdir(directoryName: string): Promise<void> {
