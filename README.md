@@ -17,7 +17,7 @@ A simple utility to back up an Android Device. Currently, this is only supported
 
 ## How to run
 
-Clone Repository and install dependenci9es
+### Clone Repository and install dependenci9es
 
 ```bash
 git clone https://github.com/scott-the-programmer/droid-up.git   
@@ -25,11 +25,13 @@ cd droid-up
 npm install
 ```
 
-Run tool
+### Run tool
 
 ```bash
 ./bin/run create --source "/path/to/android/device" --target "/path/to/save/backup/to"
 ```
+
+#### Example
 
 ```console
 ./bin/run create --source "/run/user/1000/gvfs/mtp:host=SAMSUNG/Phone/DCIM/Camera" \
