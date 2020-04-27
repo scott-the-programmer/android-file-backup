@@ -1,11 +1,12 @@
 # Droid Up
 
-![CI](https://github.com/scott-the-programmer/droid-up/workflows/CI/badge.svg)
+[![CI](https://github.com/scott-the-programmer/droid-up/workflows/CI/badge.svg)](https://github.com/scott-the-programmer/droid-up/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ef0daf22a7e958c82ba6/maintainability)](https://codeclimate.com/github/scott-the-programmer/droid-up/maintainability)
 
 Disclaimer - this is still currently a work in progress
 
-A simple utility to back up an Android Device.
+A simple utility to back up an Android Device. Currently, this is only supported on Linux. Windows and MacOS Support will come later
+
 
 ## Prerequisites
 
@@ -13,15 +14,37 @@ A simple utility to back up an Android Device.
 * [npm](https://www.npmjs.com/get-npm)
 * An Android Device
 
-## Install dependencies
 
-Please run the following command to install the npm dependencies
+## How to run
+
+Clone Repository and install dependenci9es
 
 ```bash
+git clone https://github.com/scott-the-programmer/droid-up.git   
+cd droid-up
 npm install
 ```
 
-## Run Unit Tests
+Run tool
+
+```bash
+./bin/run create --source "/path/to/android/device" --target "/path/to/save/backup/to"
+```
+
+```bash
+$ ./bin/run create --source "/run/user/1000/gvfs/mtp:host=SAMSUNG_SAMSUNG_Android_RF8M2173LEP/Phone/DCIM/Camera" --target "/media/scott/Seagate Expansion Drive/Storage/phone-backups"
+
+
+Feeding the hamsters...
+Initiating backup...
+PROGRESS [████████████████████████████████████████] | 1095/1095
+Backup complete!
+Your backup can be found under /media/scott/Seagate Expansion Drive/Storage/phone-backups/SAMSUNG_SAMSUNG_Android_RF8M2173LEP-1587971393405-droid-up
+```
+
+## Developer Information
+
+### Run Unit Tests
 
 Unit tests are located under the [./test](./test) folder. To execute them, run the following command
 
@@ -29,7 +52,7 @@ Unit tests are located under the [./test](./test) folder. To execute them, run t
 npm test
 ```
 
-## Debugging
+### Debugging
 
 I've added the necessary launch.json configurations to be able to debug locally with VSCode
 
@@ -54,14 +77,4 @@ Please modify the contents of this file to match what you want to debug against
         }
     ]
 }
-```
-
-## Run commands
-
-To run the project as a command, please execute the following
-
-### Create Backup
-
-```bash
- ./bin/run create -s /path/to/copy/from -t /path/to/copy/to
 ```
