@@ -32,14 +32,15 @@ Run tool
 ```
 
 ```bash
-$ ./bin/run create --source "/run/user/1000/gvfs/mtp:host=SAMSUNG_SAMSUNG_Android_RF8M2173LEP/Phone/DCIM/Camera" --target "/media/scott/Seagate Expansion Drive/Storage/phone-backups"
+$ ./bin/run create --source "/run/user/1000/gvfs/mtp:host=SAMSUNG/Phone/DCIM/Camera" \
+--target "/media/scott/USB/Storage/phone-backups"
 
 
 Feeding the hamsters...
 Initiating backup...
 PROGRESS [████████████████████████████████████████] | 1095/1095
 Backup complete!
-Your backup can be found under /media/scott/Seagate Expansion Drive/Storage/phone-backups/SAMSUNG_SAMSUNG_Android_RF8M2173LEP-1587971393405-droid-up
+Your backup can be found under /media/scott/USB/Storage/phone-backups/SAMSUNG-droid-up
 ```
 
 ## Developer Information
