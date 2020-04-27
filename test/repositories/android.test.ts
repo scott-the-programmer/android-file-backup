@@ -1,5 +1,6 @@
 import { AndroidRepository } from "../../src/repositories/android";
 import * as fs from "fs";
+import * as path from "path";
 import { CheckPoint } from "../../src/models/checkpoint";
 import * as sinon from "sinon";
 import { expect } from "chai";
@@ -10,15 +11,17 @@ describe("android folder repository", () => {
     var clock = sinon.useFakeTimers(1580472061001);
     const checkpoint = new CheckPoint("mock", "mock");
 
-    const mkdirStub = sinon.stub(fs,"mkdir");
-    mkdirStub.callsArg(2)
+    const mkdirStub = sinon.stub(fs, "mkdir");
+    mkdirStub.callsArg(2);
+
+    const pathStub = sinon.stub(path, "resolve").callsFake((arg) => arg);
 
     const repo = new AndroidRepository("mock", checkpoint);
-    const mockFiles = ["mock/path/file1","mock/path/file2","mock/path/file3"]
-    const globStub = sinon.stub(repo,"getFiles").callsFake(()=>{
-      return new Promise((resolve,reject)=>{
-        resolve(mockFiles)
-      })
+    const mockFiles = ["mock/path/file1", "mock/path/file2", "mock/path/file3"];
+    const globStub = sinon.stub(repo, "getFiles").callsFake(() => {
+      return new Promise((resolve, reject) => {
+        resolve(mockFiles);
+      });
     });
 
     //Act
@@ -31,6 +34,7 @@ describe("android folder repository", () => {
     clock.restore();
     mkdirStub.restore();
     globStub.restore();
+    pathStub.restore();
   });
 
   it("should return correct file count", async () => {
@@ -39,16 +43,15 @@ describe("android folder repository", () => {
     var clock = sinon.useFakeTimers(now.getTime());
     const checkpoint = new CheckPoint("mock", "mock");
 
-    const mkdirStub = sinon.stub(fs,"mkdir");
-    mkdirStub.callsArg(2)
-
+    const mkdirStub = sinon.stub(fs, "mkdir");
+    mkdirStub.callsArg(2);
 
     const repo = new AndroidRepository("mock", checkpoint);
-    const mockFiles = ["mock/path/file1","mock/path/file2","mock/path/file3"]
-    const globStub = sinon.stub(repo,"getFiles").callsFake(()=>{
-      return new Promise((resolve,reject)=>{
-        resolve(mockFiles)
-      })
+    const mockFiles = ["mock/path/file1", "mock/path/file2", "mock/path/file3"];
+    const globStub = sinon.stub(repo, "getFiles").callsFake(() => {
+      return new Promise((resolve, reject) => {
+        resolve(mockFiles);
+      });
     });
 
     //Act
@@ -63,5 +66,3 @@ describe("android folder repository", () => {
     globStub.restore();
   });
 });
-
-
