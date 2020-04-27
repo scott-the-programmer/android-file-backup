@@ -14,6 +14,9 @@ describe("android folder repository", () => {
     const mkdirStub = sinon.stub(fs, "mkdir");
     mkdirStub.callsArg(2);
 
+    const fsCopySyncStub = sinon.stub(fs,"copyFileSync");
+    fsCopySyncStub.callsFake(()=>{})
+
     const pathStub = sinon.stub(path, "resolve").callsFake((arg) => arg);
 
     const repo = new AndroidRepository("mock", checkpoint);
@@ -35,6 +38,7 @@ describe("android folder repository", () => {
     mkdirStub.restore();
     globStub.restore();
     pathStub.restore();
+    fsCopySyncStub.restore();
   });
 
   it("should return correct file count", async () => {
