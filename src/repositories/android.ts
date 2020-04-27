@@ -43,10 +43,8 @@ export class AndroidRepository implements IFolderRepository {
       files.forEach(async (file) => {
         const targetFilePath = file.replace(this.folder, backupLocation);
         await this.mkdir(path.dirname(targetFilePath));
-        fs.copyFile(file, targetFilePath, (err) => {
-          if (err) reject(err);
-          cb();
-        });
+        fs.copyFileSync(file, targetFilePath)
+        cb();
       });
       resolve(backupLocation);
     });
