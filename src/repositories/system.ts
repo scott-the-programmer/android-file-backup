@@ -1,10 +1,13 @@
 import { ISystemRepository } from "./interfaces/system-repository-interface";
 import getSize = require("get-folder-size");
 
-export module folderModule{
-  export function getSize(folder:string,callback:(err:any,size:any)=> void): void {
-    getSize(folder,callback)
-  };
+export module folderModule {
+  export function getSize(
+    folder: string,
+    callback: (err: any, size: any) => void
+  ): void {
+    getSize(folder, callback);
+  }
 }
 
 /**
@@ -39,10 +42,12 @@ export class LinuxSystemRepository extends SystemRepository {
 
   async getDriveName(folder: string): Promise<string> {
     let deviceName = "android-device";
-    if (folder.includes(""))
-      deviceName = folder.split(this.MTP_IDENTIFIER)[1]
-        ? folder.split(this.MTP_IDENTIFIER)[1]
-        : deviceName;
+    if (folder.includes(this.MTP_IDENTIFIER)) {
+      if (folder.split(this.MTP_IDENTIFIER)[1]) {
+        const mtpValueSlice = folder.split(this.MTP_IDENTIFIER)[1];
+        deviceName = mtpValueSlice.split("/")[0];
+      }
+    }
 
     return new Promise((resolve) => {
       resolve(deviceName);
