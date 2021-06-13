@@ -5,6 +5,10 @@ import { CheckPoint } from "../../src/models/checkpoint";
 import * as sinon from "sinon";
 import { expect } from "chai";
 
+afterEach(() => {
+  sinon.restore();
+});
+
 describe("android folder repository", () => {
   it("should return correct backup location on copy()", async () => {
     //Setup
@@ -14,8 +18,8 @@ describe("android folder repository", () => {
     const mkdirStub = sinon.stub(fs, "mkdir");
     mkdirStub.callsArg(2);
 
-    const fsCopySyncStub = sinon.stub(fs,"copyFileSync");
-    fsCopySyncStub.callsFake(()=>{})
+    const fsCopySyncStub = sinon.stub(fs, "copyFileSync");
+    fsCopySyncStub.callsFake(() => {});
 
     const pathStub = sinon.stub(path, "resolve").callsFake((arg) => arg);
 
@@ -32,13 +36,6 @@ describe("android folder repository", () => {
 
     //Assert
     expect(backupLocation).to.equal("mock/path/mock-1580472061001-droid-up");
-
-    //Reset
-    clock.restore();
-    mkdirStub.restore();
-    globStub.restore();
-    pathStub.restore();
-    fsCopySyncStub.restore();
   });
 
   it("should return correct file count", async () => {
@@ -63,10 +60,5 @@ describe("android folder repository", () => {
 
     //Assert
     expect(fileCount).to.equal(3);
-
-    //Reset
-    clock.restore();
-    mkdirStub.restore();
-    globStub.restore();
   });
 });

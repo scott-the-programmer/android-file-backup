@@ -5,6 +5,10 @@ import * as sinon from "sinon";
 import { expect } from "chai";
 import { MetadataRepository } from "../../src/repositories/metadata";
 
+afterEach(() => {
+	sinon.restore();
+      });
+
 describe("metadata file repository", () => {
   it("should return the correct checkpoint path", async () => {
     //Setup
@@ -19,9 +23,6 @@ describe("metadata file repository", () => {
 
     //Assert
     expect(checkpointLocation).to.equal("mock/path/checkpoint.json");
-
-    //Reset
-    writeFileStub.restore();
   });
 
   it("should fail on error", (done) => {
