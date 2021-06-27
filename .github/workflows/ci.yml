@@ -12,6 +12,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: install dependencies
-      run: npm install
+      run: yarn install
     - name: run unit tests
-      run: npm test
+      run: yarn test
