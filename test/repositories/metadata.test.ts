@@ -6,8 +6,8 @@ import { expect } from "chai";
 import { MetadataRepository } from "../../src/repositories/metadata";
 
 afterEach(() => {
-	sinon.restore();
-      });
+  sinon.restore();
+});
 
 describe("metadata file repository", () => {
   it("should return the correct checkpoint path", async () => {

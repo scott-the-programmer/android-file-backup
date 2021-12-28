@@ -18,7 +18,7 @@ describe("progress bar tests", () => {
 
   it("should throw error on negative value", () => {
     //Setup & Act & Assert
-    expect(()=> new ProgressBar(-1)).to.throw("Invalid target value");
+    expect(() => new ProgressBar(-1)).to.throw("Invalid target value");
   });
 
   it("should complete without error", async () => {
@@ -28,7 +28,7 @@ describe("progress bar tests", () => {
 
     //Act
     await progressBar.complete(0);
-    
+
     //Assert
     expect(progressBar.getProgressBar().value).to.be.equal(100);
   });

@@ -11,7 +11,7 @@ export class CheckPoint {
     this.reason = reason;
   }
 
-  toJson():string {
+  toJson(): string {
     return JSON.stringify(this);
   }
 }

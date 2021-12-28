@@ -50,7 +50,7 @@ export class AndroidRepository implements IFolderRepository {
         } catch (e) {
           error = e;
         }
-      };
+      }
       if (error) reject(error);
       else resolve(backupLocation);
     });

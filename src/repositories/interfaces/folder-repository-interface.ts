@@ -6,7 +6,7 @@ export interface IFolderRepository {
 
   /**
    * Copies the contents of the IFolderRepository to the target path
-   * @param targetPath target path to copy to 
+   * @param targetPath target path to copy to
    * @param cb to be called on each file copy
    */
   copy(targetPath: string, cb: () => void): Promise<string>;

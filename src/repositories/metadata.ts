@@ -1,4 +1,4 @@
-import { IFileRepository } from "./interfaces/file-repository-interface"
+import { IFileRepository } from "./interfaces/file-repository-interface";
 import * as fs from "fs";
 import * as path from "path";
 import { CheckPoint } from "../models/checkpoint";
@@ -12,9 +12,9 @@ export class MetadataRepository implements IFileRepository {
     return new Promise((resolve, reject) => {
       fs.writeFile(checkpointPath, checkpoint.toJson(), (err) => {
         if (err) {
-          reject(err)
+          reject(err);
           return;
-        };
+        }
         resolve(checkpointPath);
       });
     });

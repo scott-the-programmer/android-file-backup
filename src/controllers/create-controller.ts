@@ -60,6 +60,6 @@ export class CreateController {
       progressCallBack
     );
     await this._metadataRepository.createFile(this._checkpoint!, location);
-    return location
+    return location;
   }
 }
