@@ -13,7 +13,7 @@
     "@oclif/plugin-help": "^2.2.3",
     "@types/get-folder-size": "^2.0.0",
     "@types/glob": "^7.1.1",
-    "@types/ncp": "^2.0.3",
+    "@types/ncp": "^2.0.5",
     "cli-ux": "^5.4.5",
     "fs": "0.0.1-security",
     "get-folder-size": "^2.0.1",
