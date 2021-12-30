@@ -15,7 +15,7 @@
     "@types/glob": "^7.1.1",
     "@types/ncp": "^2.0.3",
     "cli-ux": "^5.4.5",
-    "fs": "0.0.1-security",
+    "fs": "0.0.2",
     "get-folder-size": "^2.0.1",
     "glob": "^7.1.6",
     "ncp": "^2.0.0",
