@@ -9,7 +9,7 @@
   "bugs": "https://github.com/scott-the-programmer/droid-up/issues",
   "dependencies": {
     "@oclif/command": "^1.5.19",
-    "@oclif/config": "^1.15.1",
+    "@oclif/config": "^1.18.3",
     "@oclif/plugin-help": "^3.2.10",
     "@types/get-folder-size": "^2.0.0",
     "@types/glob": "^7.1.1",
